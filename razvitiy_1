@@ -1,0 +1,7 @@
+class Influence:
+    def init(self, plant, influence):
+        self.plant = plant
+        self.influence = influence
+
+    def str(self):
+        return "Influence of " + self.plant.name + " on " + self.influence.name + " is " + str(self.influence.influence)
