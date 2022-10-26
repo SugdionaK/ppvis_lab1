@@ -1,0 +1,24 @@
+class Selection:
+    def init(self, plant):
+        self.plant = plant
+
+    def str(self):
+        return f'Selection of {self.plant.name}'
+
+    def repr(self):
+        return f'Selection of {self.plant.name}'
+
+    def add(self, other):
+        if isinstance(other, Selection):
+            if self.plant.name == other.plant.name:
+                new_plant = copy.copy(self.plant)
+                new_plant.growth_rate *= 1.5
+                new_plant.growth_time *= 0.9
+                new_plant.harvest_time *= 0.9
+                new_plant.seed_rate *= 1.5
+                new_plant.treat_time *= 0.9
+                return Selection(new_plant)
+            else:
+                raise Exception('Different plants')
+        else:
+            raise Exception('Not a Selection')
